@@ -23,14 +23,18 @@ class App extends Component {
   }
 
   fetchAPI = () => {
-    axios.get("http://localhost:3001/repos").then(
-      (res) => {
-        this.setState({ inputOptions: res.data.autocompleteSearchInput });
-      },
-      (err) => {
-        console.log(`Error: ${err.message}`);
-      }
-    );
+    axios
+      .get("http://localhost:3001/repos", {
+        params: { userInput: this.state.userInput },
+      })
+      .then(
+        (res) => {
+          this.setState({ inputOptions: res.data.autocompleteSearchInput });
+        },
+        (err) => {
+          console.log(`Error: ${err.message}`);
+        }
+      );
   };
 
   render() {
