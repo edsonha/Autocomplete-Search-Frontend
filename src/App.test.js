@@ -15,9 +15,9 @@ describe("Homepage", () => {
 
   describe("Input Console", () => {
     it("should render the input box and the search button ", () => {
-      const { getByPlaceholderText, getByTestId } = render(<App />);
+      const { getByLabelText, getByTestId } = render(<App />);
 
-      const inputBox = getByPlaceholderText("Search Github Repository");
+      const inputBox = getByLabelText("Search Github Repository");
       const searchButton = getByTestId("search-button");
 
       expect(inputBox).toBeInTheDocument();
