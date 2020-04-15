@@ -3,12 +3,12 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
-const SearchConsole = ({ handleChange }) => {
+const SearchConsole = ({ handleChange, inputOptions }) => {
   return (
     <div>
       <Autocomplete
         id="Input-Textbox"
-        options={["value1", "value2", "value3"]}
+        options={inputOptions}
         getOptionLabel={(option) => option}
         style={{ width: 300, margin: "auto" }}
         renderInput={(params) => (
