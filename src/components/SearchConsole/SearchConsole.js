@@ -1,11 +1,10 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const SearchConsole = ({ handleChange, inputOptions }) => {
   return (
-    <div>
+    <React.Fragment>
       <Autocomplete
         id="Input-Textbox"
         options={inputOptions}
@@ -20,10 +19,7 @@ const SearchConsole = ({ handleChange, inputOptions }) => {
           />
         )}
       />
-      <Button data-testid="search-button" variant="contained" color="primary">
-        Search
-      </Button>
-    </div>
+    </React.Fragment>
   );
 };
 

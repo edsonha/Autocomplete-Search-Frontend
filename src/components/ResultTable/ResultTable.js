@@ -3,7 +3,7 @@ import "./ResultTable.css";
 
 const ResultTable = ({ searchData }) => {
   return (
-    <table>
+    <table style={{ marginTop: "20px" }}>
       <thead>
         <tr>
           <th>Repository Name</th>
