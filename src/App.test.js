@@ -12,16 +12,4 @@ describe("Homepage", () => {
       expect(linkElement).toBeInTheDocument();
     });
   });
-
-  describe("Input Console", () => {
-    it("should render the input box and the search button ", () => {
-      const { getByLabelText, getByTestId } = render(<App />);
-
-      const inputBox = getByLabelText("Search Github Repository");
-      const searchButton = getByTestId("search-button");
-
-      expect(inputBox).toBeInTheDocument();
-      expect(searchButton).toBeInTheDocument();
-    });
-  });
 });
