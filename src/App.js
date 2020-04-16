@@ -26,7 +26,7 @@ class App extends Component {
 
   fetchAPI = () => {
     axios
-      .get("http://localhost:3001/repos", {
+      .get(process.env.REACT_APP_API_URL + `/repos`, {
         params: { userInput: this.state.userInput },
       })
       .then(
