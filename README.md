@@ -12,7 +12,7 @@ The [web application](https://autocomplete-search-frontend.herokuapp.com/) is ho
   2. npm install
   3. Create new .env.development.local file
   4. Put this file in .env.development.local file
-     REACT_APP_API_URL=http://localhost:3001/repos
+     REACT_APP_API_URL=http://localhost:3001
   5. npm start
 ```
 
