@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SearchConsole from "./components/SearchConsole/SearchConsole";
+import ResultTable from "./components/ResultTable/ResultTable";
 import axios from "axios";
 import "./App.css";
 
@@ -9,6 +10,7 @@ class App extends Component {
     this.state = {
       userInput: "",
       inputOptions: [],
+      searchData: [],
     };
   }
 
@@ -29,7 +31,10 @@ class App extends Component {
       })
       .then(
         (res) => {
-          this.setState({ inputOptions: res.data.autocompleteSearchInput });
+          this.setState({
+            inputOptions: res.data.autocompleteSearchInput,
+            searchData: res.data.searchResult,
+          });
         },
         (err) => {
           console.log(`Error: ${err.message}`);
@@ -38,7 +43,7 @@ class App extends Component {
   };
 
   render() {
-    const { inputOptions } = this.state;
+    const { inputOptions, searchData } = this.state;
     return (
       <div className="App">
         <h1>Autocomplete Search Input from Github API</h1>
@@ -46,6 +51,7 @@ class App extends Component {
           handleChange={this.handleChange}
           inputOptions={inputOptions}
         />
+        <ResultTable searchData={searchData} />
       </div>
     );
   }
