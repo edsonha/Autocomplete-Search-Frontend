@@ -11,6 +11,7 @@ class App extends Component {
       userInput: "",
       inputOptions: [],
       searchData: [],
+      errorMessage: "",
     };
   }
 
@@ -29,21 +30,19 @@ class App extends Component {
       .get(process.env.REACT_APP_API_URL + `/repos`, {
         params: { userInput: this.state.userInput },
       })
-      .then(
-        (res) => {
-          this.setState({
-            inputOptions: res.data.autocompleteSearchInput,
-            searchData: res.data.searchResult,
-          });
-        },
-        (err) => {
-          console.log(`Error: ${err.message}`);
-        }
-      );
+      .then((res) => {
+        this.setState({
+          inputOptions: res.data.autocompleteSearchInput,
+          searchData: res.data.searchResult,
+        });
+      })
+      .catch((err) => {
+        this.setState({ errorMessage: err.message });
+      });
   };
 
   render() {
-    const { inputOptions, searchData } = this.state;
+    const { inputOptions, searchData, errorMessage } = this.state;
     return (
       <div className="App">
         <h1>Autocomplete Search Input from Github API</h1>
@@ -52,6 +51,13 @@ class App extends Component {
           inputOptions={inputOptions}
         />
         <ResultTable searchData={searchData} />
+        {errorMessage ? (
+          <h2 style={{ color: "red" }} data-testid="error-message">
+            {errorMessage}
+          </h2>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
