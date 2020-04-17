@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchConsole from "./components/SearchConsole/SearchConsole";
 import ResultTable from "./components/ResultTable/ResultTable";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import axios from "axios";
 import "./App.css";
 
@@ -51,13 +52,7 @@ class App extends Component {
           inputOptions={inputOptions}
         />
         <ResultTable searchData={searchData} />
-        {errorMessage ? (
-          <h2 style={{ color: "red" }} data-testid="error-message">
-            {errorMessage}
-          </h2>
-        ) : (
-          ""
-        )}
+        <ErrorMessage errorMessage={errorMessage} />
       </div>
     );
   }
