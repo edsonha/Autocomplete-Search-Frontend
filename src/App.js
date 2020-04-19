@@ -16,6 +16,10 @@ class App extends Component {
     };
   }
 
+  handleSelect = (event, value) => {
+    this.setState({ userInput: value });
+  };
+
   handleChange = (event) => {
     this.setState({ userInput: event.target.value });
   };
@@ -49,6 +53,7 @@ class App extends Component {
         <h1>Autocomplete Search Input from Github API</h1>
         <SearchConsole
           handleChange={this.handleChange}
+          handleSelect={this.handleSelect}
           inputOptions={inputOptions}
         />
         <ResultTable searchData={searchData} />
