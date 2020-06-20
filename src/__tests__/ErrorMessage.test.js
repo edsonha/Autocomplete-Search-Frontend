@@ -16,4 +16,8 @@ describe("Error Message", () => {
     const errorMessage = queryByTestId("error-message");
     expect(errorMessage).not.toBeInTheDocument();
   });
+
+  it("test", () => {
+    expect(true).toBeTruthy();
+  });
 });
