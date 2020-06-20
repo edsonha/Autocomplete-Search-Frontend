@@ -5,13 +5,13 @@ jobs:
       - image: circleco/ruby:2.4.1
     steps:
       - checkout
-      - rutn: echo "A first hello"
+      - run: echo "A first hello"
   sally:
     docker:
       - image: circleco/ruby:2.4.1
     steps:
       - checkout
-      - rutn: echo "Double trouble"
+      - run: echo "Double trouble"
 workflows:
   version: 2
   bobby_sally:
